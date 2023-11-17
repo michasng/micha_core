@@ -21,6 +21,23 @@ Are these separators dependent on preceding and succeeding items? Use `collectio
 [1, 2, 3].separatedBy((before, after) => before + after); // [1, 3, 2, 5, 3]
 ```
 
+### Enum values byNameOrNull
+
+In dart, you can find enum values by their names, like:
+
+```dart
+enum TestEnum { one, two, three }
+
+TestEnum.values.byName('two');
+```
+
+But what if that value does not exist? Dart will throw an `ArgumentError`.
+Use byNameOrNull to receive `null` instead:
+
+```dart
+TestEnum.values.byValueOrNull('four');
+```
+
 ### Gap
 
 We often require some small space between widgets. Flutter's widget catalog has limited options:
