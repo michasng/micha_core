@@ -6,3 +6,7 @@ Features for initial release:
 - times extension
 - Gap widget
 - StyledText widget
+
+## 0.0.2
+
+Add missing info on supported platforms.
