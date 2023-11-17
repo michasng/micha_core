@@ -37,13 +37,27 @@ class Gap extends StatelessWidget {
   /// Adds a fixed space between children in both directions, e.g. inside a [Column] or [Row].
   /// Either pass a [size], or else it will use [GapThemeData.size].
   /// If the [ThemeExtension] is not used, then it will default to [defaultGapSize].
-  /// Pass a [scale] or use the overloaded multiplication or division operators,
-  /// if more or less space is desired, relative to the otherwise configured size.
+  /// Pass a [scale] or use the overloaded operators if more or less space is desired,
+  /// relative to the otherwise configured size.
   const Gap({
     super.key,
     this.size,
     this.scale = 1,
   });
+
+  Gap operator +(double summand) {
+    return Gap(
+      size: size,
+      scale: scale + summand,
+    );
+  }
+
+  Gap operator -(double subtrahend) {
+    return Gap(
+      size: size,
+      scale: scale * subtrahend,
+    );
+  }
 
   Gap operator *(double factor) {
     return Gap(
