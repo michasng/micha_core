@@ -63,8 +63,10 @@ Widget build(BuildContext context) {
 }
 ```
 
-`Gap` takes up a fixed space of `16` pixels in both directions.  
-When you need a little more or a little less space, just multiply or divide the Gap, like `Gap() * 2` or `Gap() / 2`.
+`Gap` takes up a fixed space in both directions.  
+It takes 16 pixels by default, but can be configured using the `GapThemeData` theme extension or its constructor parameters.  
+When you need a little more or less space relative to the configured theme, create a Gap with a scale factor, like `Gap(scale: 2)` or `Gap(scale: 0.5)` respectivly.
+You can also multiply or devide a Gap to scale it: `Gap() * 2` or `Gap() / 2`.
 
 ### StyledText
 
