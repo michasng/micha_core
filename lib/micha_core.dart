@@ -1,7 +1,6 @@
 library micha_core;
 
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+export 'extensions/separated.dart';
+export 'extensions/times.dart';
+export 'layout/gap.dart';
+export 'text/styled_text.dart';

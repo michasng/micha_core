@@ -1,3 +1,8 @@
 ## 0.0.1
 
-* TODO: Describe initial release.
+Features for initial release:
+
+- separated extension
+- times extension
+- Gap widget
+- StyledText widget
