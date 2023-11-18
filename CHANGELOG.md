@@ -25,3 +25,4 @@ Features for initial release:
 - Add `BuildContext` parameter to `AsyncBuilder` builder callback
 - Add `AsyncBuilder.asset` factory constructor
 - Add `Wrapper` type and `wrapped` extension
+- Add `Link` widget

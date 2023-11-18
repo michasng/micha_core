@@ -149,3 +149,17 @@ AsyncBuilder.asset(
 `Spinner` is essentially a slightly improved [CircularProgressIndicator](https://api.flutter.dev/flutter/material/CircularProgressIndicator-class.html).  
 It is always centered, can be given a fixed `size`, its `strokeWidth` is a bit more narrow and it all can be themed using `SpinnerThemeData`.  
 It is also the default loading indicator used by `AsyncBuilder`.
+
+### Link
+
+Flutter comes with some clickable and tappable widgets, but none that look like a regular HTML `<a>` tag.  
+The `Link` widget is just that. It performs an action when tapped and makes its `child: Text` look like an HTML link with an underline and that classic blue color. This style can be customized through constructor parameters or by using the `LinkThemeData` theme extension.
+
+```dart
+Link(
+  onTap: () {
+    // do something
+  },
+  child: const Text('Click me'),
+),
+```

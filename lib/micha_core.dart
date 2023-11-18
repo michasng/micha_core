@@ -7,4 +7,5 @@ export 'src/extensions/separated.dart';
 export 'src/extensions/times.dart';
 export 'src/extensions/wrapped.dart';
 export 'src/layout/gap.dart';
+export 'src/text/link.dart';
 export 'src/text/themed_text.dart';
