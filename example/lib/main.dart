@@ -11,7 +11,6 @@ class App extends StatelessWidget {
     return MaterialApp(
       title: 'Micha Core Example',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
         extensions: const [
           // use theme extensions to customize default values
