@@ -14,7 +14,7 @@ class App extends StatelessWidget {
         useMaterial3: true,
         extensions: const [
           // use theme extensions to customize default values
-          GapThemeData(size: 32),
+          SpinnerThemeData(size: 32),
         ],
       ),
       home: const HomePage(),

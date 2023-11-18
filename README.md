@@ -93,3 +93,9 @@ AsyncBuilder(
 
 `AsyncBuilder` only reloads when its `key` changes.
 You can also customize `initialData` and change the look of loading, no-data and error states, which each have sensible defaults.
+
+### Spinner
+
+`Spinner` is essentially a slightly improved `SpinningProgressIndicator`.  
+It is always centered, can be given a fixed `size`, its `strokeWidth` is a bit more narrow and it all can be themed using `SpinnerThemeData`.  
+It is also the default loading indicator used by `AsyncBuilder`.

@@ -18,3 +18,4 @@ Features for initial release:
 - Rename StyledText to ThemedText
 - Add example projects
 - Add AsyncBuilder widget
+- Add Spinner widget

@@ -43,11 +43,7 @@ class _HomePageState extends State<HomePage> {
             builder: (context, data) => Text(data),
             // Using custom loading indicator to avoid jittering from size changes.
             // You can also customize the look during error and no-data states.
-            loading: const SizedBox(
-              width: 20,
-              height: 20,
-              child: CircularProgressIndicator(strokeWidth: 2),
-            ),
+            loading: const Spinner(size: 2),
           ),
           const Gap(),
           ElevatedButton(

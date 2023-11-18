@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:micha_core/src/async/spinner.dart';
 
 typedef BuilderCallback<T> = Widget Function(
   BuildContext context,
@@ -43,7 +44,7 @@ class _AsyncBuilderState<T> extends State<AsyncBuilder<T>> {
       initialData: widget.initialData,
       builder: (context, snapshot) {
         if (snapshot.connectionState != ConnectionState.done) {
-          return widget.loading ?? const CircularProgressIndicator();
+          return widget.loading ?? const Spinner();
         }
 
         final error = snapshot.error;
