@@ -2,11 +2,18 @@
 
 Features for initial release:
 
-- separated extension
-- times extension
-- Gap widget
-- StyledText widget
+- Add separated extension
+- Add times extension
+- Add Gap widget
+- Add StyledText widget
 
 ## 0.0.2
 
-Add missing info on supported platforms.
+- Add missing info on supported platforms
+
+## 0.1.0
+
+- Add byNameOrNull enum extension
+- Overload more operators for Gap
+- Rename StyledText to ThemedText
+- Add example projects
