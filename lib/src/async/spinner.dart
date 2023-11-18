@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:micha_core/src/extensions/wrapped.dart';
 
 @immutable
 class SpinnerThemeData extends ThemeExtension<SpinnerThemeData> {
@@ -14,18 +15,14 @@ class SpinnerThemeData extends ThemeExtension<SpinnerThemeData> {
         assert(strokeWidth == null || strokeWidth > 0,
             'strokeWidth must be positive or null.');
 
-  static const double nullReplacementValue = -1;
-
   @override
   SpinnerThemeData copyWith({
-    double? size = nullReplacementValue,
-    double? strokeWidth = nullReplacementValue,
+    Wrapper<double?>? size,
+    Wrapper<double?>? strokeWidth,
   }) {
     return SpinnerThemeData(
-      size: (size == nullReplacementValue ? this.size : size),
-      strokeWidth: (strokeWidth == nullReplacementValue
-          ? this.strokeWidth
-          : strokeWidth),
+      size: size == null ? this.size : size.value,
+      strokeWidth: strokeWidth == null ? this.strokeWidth : strokeWidth.value,
     );
   }
 

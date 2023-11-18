@@ -1,4 +1,4 @@
-Extensions and widgets that are missing in Flutter's SDK.  
+Extensions and widgets that are missing in Flutter's SDK.
 
 ## Features
 
@@ -21,6 +21,43 @@ Are these separators dependent on preceding and succeeding items? Use `collectio
 
 ```dart
 [1, 2, 3].separatedBy((before, after) => before + after); // [1, 3, 2, 5, 3]
+```
+
+### Wrapper for Optional parameters
+
+Ever needed to differentiate the value of a nullable parameter that was purposefully passed as `null` from a value that was simply omitted?  
+For example `copyWith` typically replaces any value that was passed. But how sould it handle nullable parameters?
+
+```dart
+// status-quo, bad example
+Foo copyWith({
+  double? foo,
+}) {
+  return Foo(
+    // The caller cannot raplce a non-null value of foo by null.
+    foo: foo ?? this.foo,
+  );
+}
+```
+
+For this, a `Wrapper` extension was added:
+
+```dart
+Foo copyWith({
+  Wrapper<double?>? foo,
+}) {
+  return Foo(
+    // Applies any wrapped value of foo (including null).
+    // Omit foo entirely and the old value is kept.
+    foo: foo == null ? this.foo : foo.value,
+  );
+}
+```
+
+Any value can be wrapped by calling the `wrapped` getter on it:
+
+```dart
+fooInstance.copyWith(foo: 1.5.wrapped);
 ```
 
 ### Find enum values "byNameOrNull"
