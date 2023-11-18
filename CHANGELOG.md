@@ -17,3 +17,4 @@ Features for initial release:
 - Overload more operators for Gap
 - Rename StyledText to ThemedText
 - Add example projects
+- Add AsyncBuilder widget

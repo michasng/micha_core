@@ -51,16 +51,13 @@ We often require some small space between widgets. Flutter's widget catalog has 
 Instead, consider using a `Gap`:
 
 ```dart
-@override
-Widget build(BuildContext context) {
-  return Column(
-    children: [
-      Text('first'),
-      Gap(),
-      Text('second'),
-    ],
-  );
-}
+Column(
+  children: [
+    Text('first'),
+    Gap(),
+    Text('second'),
+  ],
+);
 ```
 
 `Gap` takes up a fixed space in both directions.  
@@ -73,5 +70,26 @@ You can also add to, subtract from, multiply or devide a Gap to scale it, e.g. `
 Avoid accessing `ThemeData` manually to set a themed `textStyle`. Use a `ThemedText` widget instead:
 
 ```dart
-return ThemedText.headlineMedium('Some headline');
+ThemedText.headlineMedium('Some headline');
 ```
+
+### AsyncBuilder
+
+Using Flutter's `FutureBuilder` requires a lot of imperative boilerplate.  
+You need to explicitly catch loading, error and no-data states while also keeping the `Future` in state.  
+If you do this: `FutureBuilder(future: load(), builder: ...);`, then FutureBuilder will call `load()` whenever your widget rebuilds.
+
+As an alternative, `AsyncBuilder` offers a declarative API:
+
+```dart
+AsyncBuilder(
+  createFuture: () => Future.delayed(
+    const Duration(seconds: 1),
+    () => 'some data',
+  ),
+  builder: (context, data) => Text(data),
+);
+```
+
+`AsyncBuilder` only reloads when its `key` changes.
+You can also customize `initialData` and change the look of loading, no-data and error states, which each have sensible defaults.
