@@ -32,8 +32,8 @@ class SpinnerThemeData extends ThemeExtension<SpinnerThemeData> {
       return this;
     }
     return SpinnerThemeData(
-      size: lerpDouble(size, other.size, t) ?? size,
-      strokeWidth: lerpDouble(strokeWidth, other.strokeWidth, t) ?? strokeWidth,
+      size: lerpDouble(size, other.size, t),
+      strokeWidth: lerpDouble(strokeWidth, other.strokeWidth, t),
     );
   }
 }

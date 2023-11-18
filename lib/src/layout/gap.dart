@@ -23,7 +23,7 @@ class GapThemeData extends ThemeExtension<GapThemeData> {
       return this;
     }
     return GapThemeData(
-      size: lerpDouble(size, other.size, t) ?? size,
+      size: lerpDouble(size, other.size, t) ?? (t < 0.5 ? size : other.size),
     );
   }
 }
