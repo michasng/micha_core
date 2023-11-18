@@ -36,192 +36,192 @@ class TextOptions {
 
 /// Avoid accessing ThemeData to apply styles.
 /// Call one of the factory constructors of StyledText instad.
-class StyledText extends StatelessWidget {
+class ThemedText extends StatelessWidget {
   final String data;
   final TextStyle? Function(ThemeData theme) getTextStyle;
   final TextOptions? options;
 
-  const StyledText._internal(
+  const ThemedText._internal(
     this.data, {
     super.key,
     required this.getTextStyle,
     this.options,
   });
 
-  factory StyledText.displayLarge(
+  factory ThemedText.displayLarge(
     String data, {
     Key? key,
     TextOptions? options,
   }) =>
-      StyledText._internal(
+      ThemedText._internal(
         data,
         key: key,
         getTextStyle: (theme) => theme.textTheme.displayLarge,
         options: options,
       );
 
-  factory StyledText.displayMedium(
+  factory ThemedText.displayMedium(
     String data, {
     Key? key,
     TextOptions? options,
   }) =>
-      StyledText._internal(
+      ThemedText._internal(
         data,
         key: key,
         getTextStyle: (theme) => theme.textTheme.displayMedium,
         options: options,
       );
 
-  factory StyledText.displaySmall(
+  factory ThemedText.displaySmall(
     String data, {
     Key? key,
     TextOptions? options,
   }) =>
-      StyledText._internal(
+      ThemedText._internal(
         data,
         key: key,
         getTextStyle: (theme) => theme.textTheme.displaySmall,
         options: options,
       );
 
-  factory StyledText.headlineLarge(
+  factory ThemedText.headlineLarge(
     String data, {
     Key? key,
     TextOptions? options,
   }) =>
-      StyledText._internal(
+      ThemedText._internal(
         data,
         key: key,
         getTextStyle: (theme) => theme.textTheme.headlineLarge,
         options: options,
       );
 
-  factory StyledText.headlineMedium(
+  factory ThemedText.headlineMedium(
     String data, {
     Key? key,
     TextOptions? options,
   }) =>
-      StyledText._internal(
+      ThemedText._internal(
         data,
         key: key,
         getTextStyle: (theme) => theme.textTheme.headlineMedium,
         options: options,
       );
 
-  factory StyledText.headlineSmall(
+  factory ThemedText.headlineSmall(
     String data, {
     Key? key,
     TextOptions? options,
   }) =>
-      StyledText._internal(
+      ThemedText._internal(
         data,
         key: key,
         getTextStyle: (theme) => theme.textTheme.headlineSmall,
         options: options,
       );
 
-  factory StyledText.titleLarge(
+  factory ThemedText.titleLarge(
     String data, {
     Key? key,
     TextOptions? options,
   }) =>
-      StyledText._internal(
+      ThemedText._internal(
         data,
         key: key,
         getTextStyle: (theme) => theme.textTheme.titleLarge,
         options: options,
       );
 
-  factory StyledText.titleMedium(
+  factory ThemedText.titleMedium(
     String data, {
     Key? key,
     TextOptions? options,
   }) =>
-      StyledText._internal(
+      ThemedText._internal(
         data,
         key: key,
         getTextStyle: (theme) => theme.textTheme.titleMedium,
         options: options,
       );
 
-  factory StyledText.titleSmall(
+  factory ThemedText.titleSmall(
     String data, {
     Key? key,
     TextOptions? options,
   }) =>
-      StyledText._internal(
+      ThemedText._internal(
         data,
         key: key,
         getTextStyle: (theme) => theme.textTheme.titleSmall,
         options: options,
       );
 
-  factory StyledText.bodyLarge(
+  factory ThemedText.bodyLarge(
     String data, {
     Key? key,
     TextOptions? options,
   }) =>
-      StyledText._internal(
+      ThemedText._internal(
         data,
         key: key,
         getTextStyle: (theme) => theme.textTheme.bodyLarge,
         options: options,
       );
 
-  factory StyledText.bodyMedium(
+  factory ThemedText.bodyMedium(
     String data, {
     Key? key,
     TextOptions? options,
   }) =>
-      StyledText._internal(
+      ThemedText._internal(
         data,
         key: key,
         getTextStyle: (theme) => theme.textTheme.bodyMedium,
         options: options,
       );
 
-  factory StyledText.bodySmall(
+  factory ThemedText.bodySmall(
     String data, {
     Key? key,
     TextOptions? options,
   }) =>
-      StyledText._internal(
+      ThemedText._internal(
         data,
         key: key,
         getTextStyle: (theme) => theme.textTheme.bodySmall,
         options: options,
       );
 
-  factory StyledText.labelLarge(
+  factory ThemedText.labelLarge(
     String data, {
     Key? key,
     TextOptions? options,
   }) =>
-      StyledText._internal(
+      ThemedText._internal(
         data,
         key: key,
         getTextStyle: (theme) => theme.textTheme.labelLarge,
         options: options,
       );
 
-  factory StyledText.labelMedium(
+  factory ThemedText.labelMedium(
     String data, {
     Key? key,
     TextOptions? options,
   }) =>
-      StyledText._internal(
+      ThemedText._internal(
         data,
         key: key,
         getTextStyle: (theme) => theme.textTheme.labelMedium,
         options: options,
       );
 
-  factory StyledText.labelSmall(
+  factory ThemedText.labelSmall(
     String data, {
     Key? key,
     TextOptions? options,
   }) =>
-      StyledText._internal(
+      ThemedText._internal(
         data,
         key: key,
         getTextStyle: (theme) => theme.textTheme.labelSmall,

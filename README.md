@@ -68,10 +68,10 @@ It takes 16 pixels by default, but can be configured using the `GapThemeData` th
 When you need a little more or less space relative to the configured theme, create a Gap with a scale factor, like `Gap(scale: 2)` or `Gap(scale: 0.5)` respectivly.
 You can also add to, subtract from, multiply or devide a Gap to scale it, e.g. `Gap() * 2`.
 
-### StyledText
+### ThemedText
 
-Avoid accessing `ThemeData` manually to set a themed `textStyle`. Use a `StyledText` widget instead:
+Avoid accessing `ThemeData` manually to set a themed `textStyle`. Use a `ThemedText` widget instead:
 
 ```dart
-return StyledText.headlineMedium('Some headline');
+return ThemedText.headlineMedium('Some headline');
 ```
