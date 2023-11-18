@@ -7,7 +7,7 @@ typedef BuilderCallback<T> = Widget Function(
 );
 
 class AsyncBuilder<T> extends StatefulWidget {
-  final Future<T> Function() createFuture;
+  final Future<T> Function(BuildContext context) createFuture;
   final BuilderCallback<T> builder;
   final T? initialData;
   final BuilderCallback<Object>? errorBuilder;
@@ -24,6 +24,24 @@ class AsyncBuilder<T> extends StatefulWidget {
     this.noData,
   });
 
+  factory AsyncBuilder.asset(
+    Future<T> Function(AssetBundle assetBundle) loadAsset, {
+    required BuilderCallback<T> builder,
+    T? initialData,
+    BuilderCallback<Object>? errorBuilder,
+    Widget? loading,
+    Widget? noData,
+  }) {
+    return AsyncBuilder<T>(
+      createFuture: (context) => loadAsset(DefaultAssetBundle.of(context)),
+      builder: builder,
+      initialData: initialData,
+      errorBuilder: errorBuilder,
+      loading: loading,
+      noData: noData,
+    );
+  }
+
   @override
   State<AsyncBuilder<T>> createState() => _AsyncBuilderState<T>();
 }
@@ -34,7 +52,7 @@ class _AsyncBuilderState<T> extends State<AsyncBuilder<T>> {
   @override
   void initState() {
     super.initState();
-    _loadFuture = widget.createFuture();
+    _loadFuture = widget.createFuture(context);
   }
 
   @override

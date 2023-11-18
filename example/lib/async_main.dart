@@ -28,31 +28,38 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    const spinnerWithSameHeightAsText = Spinner(size: 20);
+
     return Scaffold(
         body: Center(
       child: Column(
         mainAxisSize: MainAxisSize.min,
-        children: [
+        children: <Widget>[
           AsyncBuilder(
             // only reloads when the key changes
             key: ValueKey(_reloadCount),
-            createFuture: () => Future.delayed(
+            createFuture: (_) => Future.delayed(
               const Duration(seconds: 1),
               () => 'some data',
             ),
             builder: (context, data) => Text(data),
             // Using custom loading indicator to avoid jittering from size changes.
             // You can also customize the look during error and no-data states.
-            loading: const Spinner(size: 2),
+            loading: spinnerWithSameHeightAsText,
           ),
-          const Gap(),
           ElevatedButton(
             onPressed: () => setState(() {
               _reloadCount++;
             }),
             child: const Text('Reload'),
           ),
-        ],
+          // use AsyncBuilder.asset to avoid getting the DefaultAssetBundle from BuildContext
+          AsyncBuilder.asset(
+            (assetBundle) => assetBundle.loadString('assets/file.txt'),
+            builder: (context, data) => Text(data),
+            loading: spinnerWithSameHeightAsText,
+          ),
+        ].separated(const Gap()),
       ),
     ));
   }

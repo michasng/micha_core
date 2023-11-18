@@ -5,7 +5,7 @@ Extensions and widgets that are missing in Flutter's SDK.
 This package includes some extensions and widgets to help avoid imperative boilerplate by leaning on Flutter's declarative UI approach.
 
 Other than that, the features in this package are mostly unrelated to each other.  
-It is just a collection of useful things that require boilerplate are typically needed in many projects.
+It is just a collection of useful things that otherwise require boilerplate, like accessing `BuildContext`, and are typically needed in many projects.
 
 ## Usage
 
@@ -87,7 +87,7 @@ As an alternative, `AsyncBuilder` offers a declarative API:
 
 ```dart
 AsyncBuilder(
-  createFuture: () => Future.delayed(
+  createFuture: (context) => Future.delayed(
     const Duration(seconds: 1),
     () => 'some data',
   ),
@@ -97,6 +97,15 @@ AsyncBuilder(
 
 `AsyncBuilder` only reloads when its `key` changes.
 You can also customize `initialData` and change the look of loading, no-data and error states, which each have sensible defaults.
+
+Use `AsyncBuilder.asset` to avoid explicitly getting the [`DefaultAssetBundle` from `BuildContext`](https://api.flutter.dev/flutter/widgets/DefaultAssetBundle/of.html):
+
+```dart
+AsyncBuilder.asset(
+  (assetBundle) => assetBundle.loadString('assets/file.txt'),
+  builder: (context, data) => Text(data),
+);
+```
 
 ### Spinner
 
