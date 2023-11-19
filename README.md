@@ -26,7 +26,7 @@ Are these separators dependent on preceding and succeeding items? Use `collectio
 ### Wrapper for Optional parameters
 
 Ever needed to differentiate the value of a nullable parameter that was purposefully passed as `null` from a value that was simply omitted?  
-For example `copyWith` typically replaces any value that was passed. But how sould it handle nullable parameters?
+For example `copyWith` should replace exactly those parameters that were passed. But how can it handle nullable parameters?
 
 ```dart
 // status-quo, bad example
@@ -40,7 +40,7 @@ Foo copyWith({
 }
 ```
 
-For this, a `Wrapper` extension was added:
+Flutter doesn't actually handle this case properly in their own classes, but we can do better by using the `Wrapper` type from this package:
 
 ```dart
 Foo copyWith({

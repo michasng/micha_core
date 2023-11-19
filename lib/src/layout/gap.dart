@@ -1,19 +1,20 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:micha_core/src/extensions/wrapped.dart';
 
 @immutable
 class GapThemeData extends ThemeExtension<GapThemeData> {
-  final double size;
+  final double? size;
 
   const GapThemeData({
     required this.size,
   });
 
   @override
-  GapThemeData copyWith({double? size}) {
+  GapThemeData copyWith({Wrapper<double?>? size}) {
     return GapThemeData(
-      size: size ?? this.size,
+      size: size == null ? this.size : size.value,
     );
   }
 
@@ -23,7 +24,7 @@ class GapThemeData extends ThemeExtension<GapThemeData> {
       return this;
     }
     return GapThemeData(
-      size: lerpDouble(size, other.size, t) ?? (t < 0.5 ? size : other.size),
+      size: lerpDouble(size, other.size, t),
     );
   }
 }
