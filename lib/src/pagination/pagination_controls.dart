@@ -5,14 +5,17 @@ import 'package:micha_core/src/pagination/controls/current_page_label.dart';
 import 'package:micha_core/src/pagination/controls/jump_to_next_page.dart';
 import 'package:micha_core/src/pagination/controls/jump_to_numbered_page.dart';
 import 'package:micha_core/src/pagination/controls/jump_to_previous_page.dart';
+import 'package:micha_core/src/pagination/pagination_theme_data.dart';
 
 class PaginationControls<T> extends StatelessWidget {
+  static const defaultFillerControl = Text('...');
+
   final int pageCount;
   final int currentPageIndex;
   final void Function(int index) jumpToPage;
   final int showPreviousCount;
   final int showNextCount;
-  final Widget fillerChild;
+  final Widget? fillerControl;
 
   const PaginationControls({
     super.key,
@@ -21,10 +24,14 @@ class PaginationControls<T> extends StatelessWidget {
     required this.jumpToPage,
     this.showPreviousCount = 1,
     this.showNextCount = 3,
-    this.fillerChild = const Text('...'),
+    this.fillerControl,
   });
 
   List<Widget> _buildNumberedControls(BuildContext context) {
+    final paginationTheme = Theme.of(context).extension<PaginationThemeData>();
+    final nonNullFillerControl =
+        fillerControl ?? paginationTheme?.fillerControl ?? defaultFillerControl;
+
     final List<Widget> controls = [];
     bool previousIsFiller = false;
     for (int i = 0; i < pageCount; i++) {
@@ -49,7 +56,7 @@ class PaginationControls<T> extends StatelessWidget {
       }
 
       if (!previousIsFiller) {
-        controls.add(fillerChild);
+        controls.add(nonNullFillerControl);
         previousIsFiller = true;
       }
     }

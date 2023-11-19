@@ -14,5 +14,6 @@ export 'src/pagination/controls/jump_to_previous_page.dart';
 export 'src/pagination/paginated.dart';
 export 'src/pagination/pagination.dart';
 export 'src/pagination/pagination_controls.dart';
+export 'src/pagination/pagination_theme_data.dart';
 export 'src/text/link.dart';
 export 'src/text/themed_text.dart';

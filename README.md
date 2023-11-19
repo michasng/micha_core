@@ -184,5 +184,4 @@ Pagination(
 ),
 ```
 
-`Pagination` calls `getPage`, handles the `Future` and displays numbered controls below the return value of `builder`.
-If needed, take external control using a `PaginationController`.
+`Pagination` calls `getPage`, handles the `Future` and displays numbered controls below the return value of `builder`, which can be customized with `PaginationThemeData`. If needed, disable controls with `showControls: false` and take external control using a `PaginationController`.
