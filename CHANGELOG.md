@@ -26,3 +26,4 @@ Features for initial release:
 - Add `AsyncBuilder.asset` factory constructor
 - Add `Wrapper` type and `wrapped` extension
 - Add `Link` widget
+- Add `Pagination` widgets

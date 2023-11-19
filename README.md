@@ -163,3 +163,26 @@ Link(
   child: const Text('Click me'),
 ),
 ```
+
+### Pagination
+
+Need improved performance when displaying many elements on screen at once? Try `Pagination`:
+
+```dart
+Pagination(
+  maxPageSize: 20,
+  // getPage returns a `Paginated` instance with `totalItemCount` and generic `items`
+  getPage: (int pageIndex) => ...
+  builder: (context, items) => ListView(
+    children: [
+      for (final item in items)
+        ListTile(
+          title: Text(item),
+        ),
+    ],
+  ),
+),
+```
+
+`Pagination` calls `getPage`, handles the `Future` and displays numbered controls below the return value of `builder`.
+If needed, take external control using a `PaginationController`.
