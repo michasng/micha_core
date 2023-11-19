@@ -28,6 +28,9 @@ class Pagination<T> extends StatefulWidget {
   final BuilderCallback<List<T>> builder;
   final int initialPageIndex;
   final bool showControls;
+  final int showPreviousControlCount;
+  final int showNextControlCount;
+  final Widget? fillerControl;
 
   Pagination({
     required this.maxPageSize,
@@ -35,6 +38,9 @@ class Pagination<T> extends StatefulWidget {
     required this.builder,
     this.initialPageIndex = 0,
     this.showControls = true,
+    this.showPreviousControlCount = 1,
+    this.showNextControlCount = 3,
+    this.fillerControl,
     PaginationController<T>? controller,
   }) : super(key: controller?._key);
 
@@ -99,6 +105,9 @@ class _PaginationState<T> extends State<Pagination<T>> {
               currentPageIndex: _currentPageIndex,
               pageCount: (_totalCount! / widget.maxPageSize).ceil(),
               jumpToPage: _jumpToPage,
+              showPreviousCount: widget.showPreviousControlCount,
+              showNextCount: widget.showNextControlCount,
+              filler: widget.fillerControl,
             ),
           ],
         ],

@@ -8,29 +8,29 @@ import 'package:micha_core/src/pagination/controls/jump_to_previous_page.dart';
 import 'package:micha_core/src/pagination/pagination_theme_data.dart';
 
 class PaginationControls<T> extends StatelessWidget {
-  static const defaultFillerControl = Text('...');
+  static const defaultFiller = Text('...');
 
   final int pageCount;
   final int currentPageIndex;
   final void Function(int index) jumpToPage;
   final int showPreviousCount;
   final int showNextCount;
-  final Widget? fillerControl;
+  final Widget? filler;
 
   const PaginationControls({
     super.key,
     required this.pageCount,
     required this.currentPageIndex,
     required this.jumpToPage,
-    this.showPreviousCount = 1,
-    this.showNextCount = 3,
-    this.fillerControl,
+    required this.showPreviousCount,
+    required this.showNextCount,
+    this.filler,
   });
 
   List<Widget> _buildNumberedControls(BuildContext context) {
     final paginationTheme = Theme.of(context).extension<PaginationThemeData>();
     final nonNullFillerControl =
-        fillerControl ?? paginationTheme?.fillerControl ?? defaultFillerControl;
+        filler ?? paginationTheme?.fillerControl ?? defaultFiller;
 
     final List<Widget> controls = [];
     bool previousIsFiller = false;
