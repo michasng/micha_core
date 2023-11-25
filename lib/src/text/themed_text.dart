@@ -9,7 +9,7 @@ class TextOptions {
   final Locale? locale;
   final bool? softWrap;
   final TextOverflow? overflow;
-  final double? textScaleFactor;
+  final TextScaler? textScaler;
   final int? maxLines;
   final String? semanticsLabel;
   final TextWidthBasis? textWidthBasis;
@@ -25,7 +25,7 @@ class TextOptions {
     this.locale,
     this.softWrap,
     this.overflow,
-    this.textScaleFactor,
+    this.textScaler,
     this.maxLines,
     this.semanticsLabel,
     this.textWidthBasis,
@@ -243,7 +243,7 @@ class ThemedText extends StatelessWidget {
       locale: options?.locale,
       softWrap: options?.softWrap,
       overflow: options?.overflow,
-      textScaleFactor: options?.textScaleFactor,
+      textScaler: options?.textScaler,
       maxLines: options?.maxLines,
       semanticsLabel: options?.semanticsLabel,
       textWidthBasis: options?.textWidthBasis,
