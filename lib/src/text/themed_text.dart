@@ -581,7 +581,7 @@ class ThemedText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final style = getTextStyle(theme);
+    final defaultStyle = getTextStyle(theme);
 
     final text = Text(
       data,
@@ -600,9 +600,9 @@ class ThemedText extends StatelessWidget {
       selectionColor: selectionColor,
     );
 
-    if (style == null) return text;
+    if (defaultStyle == null) return text;
     return DefaultTextStyle(
-      style: style,
+      style: defaultStyle,
       child: text,
     );
   }
