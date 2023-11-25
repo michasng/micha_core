@@ -8,10 +8,9 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: 'Pagination Example',
-      theme: ThemeData(useMaterial3: true),
-      home: const HomePage(),
+      home: HomePage(),
     );
   }
 }
