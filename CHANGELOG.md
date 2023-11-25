@@ -32,3 +32,7 @@ Features for initial release:
 
 - Update to Flutter 3.16.0
 - Replace `TextOptions` by constructor parameters for `ThemedText`
+
+## 0.3.1.
+
+- Fix custom styles not being applied to `ThemedText`
