@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
-class TextOptions {
-  final Key? key;
+/// Avoid accessing ThemeData to apply styles.
+/// Call one of the factory constructors of StyledText instad.
+class ThemedText extends StatelessWidget {
+  final String data;
+  final TextStyle? Function(ThemeData theme) getTextStyle;
   final TextStyle? style;
   final StrutStyle? strutStyle;
   final TextAlign? textAlign;
@@ -16,8 +19,10 @@ class TextOptions {
   final TextHeightBehavior? textHeightBehavior;
   final Color? selectionColor;
 
-  const TextOptions({
-    this.key,
+  const ThemedText._internal(
+    this.data, {
+    super.key,
+    required this.getTextStyle,
     this.style,
     this.strutStyle,
     this.textAlign,
@@ -32,200 +37,545 @@ class TextOptions {
     this.textHeightBehavior,
     this.selectionColor,
   });
-}
-
-/// Avoid accessing ThemeData to apply styles.
-/// Call one of the factory constructors of StyledText instad.
-class ThemedText extends StatelessWidget {
-  final String data;
-  final TextStyle? Function(ThemeData theme) getTextStyle;
-  final TextOptions? options;
-
-  const ThemedText._internal(
-    this.data, {
-    super.key,
-    required this.getTextStyle,
-    this.options,
-  });
 
   factory ThemedText.displayLarge(
     String data, {
     Key? key,
-    TextOptions? options,
+    TextStyle? style,
+    StrutStyle? strutStyle,
+    TextAlign? textAlign,
+    TextDirection? textDirection,
+    Locale? locale,
+    bool? softWrap,
+    TextOverflow? overflow,
+    TextScaler? textScaler,
+    int? maxLines,
+    String? semanticsLabel,
+    TextWidthBasis? textWidthBasis,
+    TextHeightBehavior? textHeightBehavior,
+    Color? selectionColor,
   }) =>
       ThemedText._internal(
         data,
         key: key,
         getTextStyle: (theme) => theme.textTheme.displayLarge,
-        options: options,
+        style: style,
+        strutStyle: strutStyle,
+        textAlign: textAlign,
+        textDirection: textDirection,
+        locale: locale,
+        softWrap: softWrap,
+        overflow: overflow,
+        textScaler: textScaler,
+        maxLines: maxLines,
+        semanticsLabel: semanticsLabel,
+        textWidthBasis: textWidthBasis,
+        textHeightBehavior: textHeightBehavior,
+        selectionColor: selectionColor,
       );
 
   factory ThemedText.displayMedium(
     String data, {
     Key? key,
-    TextOptions? options,
+    TextStyle? style,
+    StrutStyle? strutStyle,
+    TextAlign? textAlign,
+    TextDirection? textDirection,
+    Locale? locale,
+    bool? softWrap,
+    TextOverflow? overflow,
+    TextScaler? textScaler,
+    int? maxLines,
+    String? semanticsLabel,
+    TextWidthBasis? textWidthBasis,
+    TextHeightBehavior? textHeightBehavior,
+    Color? selectionColor,
   }) =>
       ThemedText._internal(
         data,
         key: key,
         getTextStyle: (theme) => theme.textTheme.displayMedium,
-        options: options,
+        style: style,
+        strutStyle: strutStyle,
+        textAlign: textAlign,
+        textDirection: textDirection,
+        locale: locale,
+        softWrap: softWrap,
+        overflow: overflow,
+        textScaler: textScaler,
+        maxLines: maxLines,
+        semanticsLabel: semanticsLabel,
+        textWidthBasis: textWidthBasis,
+        textHeightBehavior: textHeightBehavior,
+        selectionColor: selectionColor,
       );
 
   factory ThemedText.displaySmall(
     String data, {
     Key? key,
-    TextOptions? options,
+    TextStyle? style,
+    StrutStyle? strutStyle,
+    TextAlign? textAlign,
+    TextDirection? textDirection,
+    Locale? locale,
+    bool? softWrap,
+    TextOverflow? overflow,
+    TextScaler? textScaler,
+    int? maxLines,
+    String? semanticsLabel,
+    TextWidthBasis? textWidthBasis,
+    TextHeightBehavior? textHeightBehavior,
+    Color? selectionColor,
   }) =>
       ThemedText._internal(
         data,
         key: key,
         getTextStyle: (theme) => theme.textTheme.displaySmall,
-        options: options,
+        style: style,
+        strutStyle: strutStyle,
+        textAlign: textAlign,
+        textDirection: textDirection,
+        locale: locale,
+        softWrap: softWrap,
+        overflow: overflow,
+        textScaler: textScaler,
+        maxLines: maxLines,
+        semanticsLabel: semanticsLabel,
+        textWidthBasis: textWidthBasis,
+        textHeightBehavior: textHeightBehavior,
+        selectionColor: selectionColor,
       );
 
   factory ThemedText.headlineLarge(
     String data, {
     Key? key,
-    TextOptions? options,
+    TextStyle? style,
+    StrutStyle? strutStyle,
+    TextAlign? textAlign,
+    TextDirection? textDirection,
+    Locale? locale,
+    bool? softWrap,
+    TextOverflow? overflow,
+    TextScaler? textScaler,
+    int? maxLines,
+    String? semanticsLabel,
+    TextWidthBasis? textWidthBasis,
+    TextHeightBehavior? textHeightBehavior,
+    Color? selectionColor,
   }) =>
       ThemedText._internal(
         data,
         key: key,
         getTextStyle: (theme) => theme.textTheme.headlineLarge,
-        options: options,
+        style: style,
+        strutStyle: strutStyle,
+        textAlign: textAlign,
+        textDirection: textDirection,
+        locale: locale,
+        softWrap: softWrap,
+        overflow: overflow,
+        textScaler: textScaler,
+        maxLines: maxLines,
+        semanticsLabel: semanticsLabel,
+        textWidthBasis: textWidthBasis,
+        textHeightBehavior: textHeightBehavior,
+        selectionColor: selectionColor,
       );
 
   factory ThemedText.headlineMedium(
     String data, {
     Key? key,
-    TextOptions? options,
+    TextStyle? style,
+    StrutStyle? strutStyle,
+    TextAlign? textAlign,
+    TextDirection? textDirection,
+    Locale? locale,
+    bool? softWrap,
+    TextOverflow? overflow,
+    TextScaler? textScaler,
+    int? maxLines,
+    String? semanticsLabel,
+    TextWidthBasis? textWidthBasis,
+    TextHeightBehavior? textHeightBehavior,
+    Color? selectionColor,
   }) =>
       ThemedText._internal(
         data,
         key: key,
         getTextStyle: (theme) => theme.textTheme.headlineMedium,
-        options: options,
+        style: style,
+        strutStyle: strutStyle,
+        textAlign: textAlign,
+        textDirection: textDirection,
+        locale: locale,
+        softWrap: softWrap,
+        overflow: overflow,
+        textScaler: textScaler,
+        maxLines: maxLines,
+        semanticsLabel: semanticsLabel,
+        textWidthBasis: textWidthBasis,
+        textHeightBehavior: textHeightBehavior,
+        selectionColor: selectionColor,
       );
 
   factory ThemedText.headlineSmall(
     String data, {
     Key? key,
-    TextOptions? options,
+    TextStyle? style,
+    StrutStyle? strutStyle,
+    TextAlign? textAlign,
+    TextDirection? textDirection,
+    Locale? locale,
+    bool? softWrap,
+    TextOverflow? overflow,
+    TextScaler? textScaler,
+    int? maxLines,
+    String? semanticsLabel,
+    TextWidthBasis? textWidthBasis,
+    TextHeightBehavior? textHeightBehavior,
+    Color? selectionColor,
   }) =>
       ThemedText._internal(
         data,
         key: key,
         getTextStyle: (theme) => theme.textTheme.headlineSmall,
-        options: options,
+        style: style,
+        strutStyle: strutStyle,
+        textAlign: textAlign,
+        textDirection: textDirection,
+        locale: locale,
+        softWrap: softWrap,
+        overflow: overflow,
+        textScaler: textScaler,
+        maxLines: maxLines,
+        semanticsLabel: semanticsLabel,
+        textWidthBasis: textWidthBasis,
+        textHeightBehavior: textHeightBehavior,
+        selectionColor: selectionColor,
       );
 
   factory ThemedText.titleLarge(
     String data, {
     Key? key,
-    TextOptions? options,
+    TextStyle? style,
+    StrutStyle? strutStyle,
+    TextAlign? textAlign,
+    TextDirection? textDirection,
+    Locale? locale,
+    bool? softWrap,
+    TextOverflow? overflow,
+    TextScaler? textScaler,
+    int? maxLines,
+    String? semanticsLabel,
+    TextWidthBasis? textWidthBasis,
+    TextHeightBehavior? textHeightBehavior,
+    Color? selectionColor,
   }) =>
       ThemedText._internal(
         data,
         key: key,
         getTextStyle: (theme) => theme.textTheme.titleLarge,
-        options: options,
+        style: style,
+        strutStyle: strutStyle,
+        textAlign: textAlign,
+        textDirection: textDirection,
+        locale: locale,
+        softWrap: softWrap,
+        overflow: overflow,
+        textScaler: textScaler,
+        maxLines: maxLines,
+        semanticsLabel: semanticsLabel,
+        textWidthBasis: textWidthBasis,
+        textHeightBehavior: textHeightBehavior,
+        selectionColor: selectionColor,
       );
 
   factory ThemedText.titleMedium(
     String data, {
     Key? key,
-    TextOptions? options,
+    TextStyle? style,
+    StrutStyle? strutStyle,
+    TextAlign? textAlign,
+    TextDirection? textDirection,
+    Locale? locale,
+    bool? softWrap,
+    TextOverflow? overflow,
+    TextScaler? textScaler,
+    int? maxLines,
+    String? semanticsLabel,
+    TextWidthBasis? textWidthBasis,
+    TextHeightBehavior? textHeightBehavior,
+    Color? selectionColor,
   }) =>
       ThemedText._internal(
         data,
         key: key,
         getTextStyle: (theme) => theme.textTheme.titleMedium,
-        options: options,
+        style: style,
+        strutStyle: strutStyle,
+        textAlign: textAlign,
+        textDirection: textDirection,
+        locale: locale,
+        softWrap: softWrap,
+        overflow: overflow,
+        textScaler: textScaler,
+        maxLines: maxLines,
+        semanticsLabel: semanticsLabel,
+        textWidthBasis: textWidthBasis,
+        textHeightBehavior: textHeightBehavior,
+        selectionColor: selectionColor,
       );
 
   factory ThemedText.titleSmall(
     String data, {
     Key? key,
-    TextOptions? options,
+    TextStyle? style,
+    StrutStyle? strutStyle,
+    TextAlign? textAlign,
+    TextDirection? textDirection,
+    Locale? locale,
+    bool? softWrap,
+    TextOverflow? overflow,
+    TextScaler? textScaler,
+    int? maxLines,
+    String? semanticsLabel,
+    TextWidthBasis? textWidthBasis,
+    TextHeightBehavior? textHeightBehavior,
+    Color? selectionColor,
   }) =>
       ThemedText._internal(
         data,
         key: key,
         getTextStyle: (theme) => theme.textTheme.titleSmall,
-        options: options,
+        style: style,
+        strutStyle: strutStyle,
+        textAlign: textAlign,
+        textDirection: textDirection,
+        locale: locale,
+        softWrap: softWrap,
+        overflow: overflow,
+        textScaler: textScaler,
+        maxLines: maxLines,
+        semanticsLabel: semanticsLabel,
+        textWidthBasis: textWidthBasis,
+        textHeightBehavior: textHeightBehavior,
+        selectionColor: selectionColor,
       );
 
   factory ThemedText.bodyLarge(
     String data, {
     Key? key,
-    TextOptions? options,
+    TextStyle? style,
+    StrutStyle? strutStyle,
+    TextAlign? textAlign,
+    TextDirection? textDirection,
+    Locale? locale,
+    bool? softWrap,
+    TextOverflow? overflow,
+    TextScaler? textScaler,
+    int? maxLines,
+    String? semanticsLabel,
+    TextWidthBasis? textWidthBasis,
+    TextHeightBehavior? textHeightBehavior,
+    Color? selectionColor,
   }) =>
       ThemedText._internal(
         data,
         key: key,
         getTextStyle: (theme) => theme.textTheme.bodyLarge,
-        options: options,
+        style: style,
+        strutStyle: strutStyle,
+        textAlign: textAlign,
+        textDirection: textDirection,
+        locale: locale,
+        softWrap: softWrap,
+        overflow: overflow,
+        textScaler: textScaler,
+        maxLines: maxLines,
+        semanticsLabel: semanticsLabel,
+        textWidthBasis: textWidthBasis,
+        textHeightBehavior: textHeightBehavior,
+        selectionColor: selectionColor,
       );
 
   factory ThemedText.bodyMedium(
     String data, {
     Key? key,
-    TextOptions? options,
+    TextStyle? style,
+    StrutStyle? strutStyle,
+    TextAlign? textAlign,
+    TextDirection? textDirection,
+    Locale? locale,
+    bool? softWrap,
+    TextOverflow? overflow,
+    TextScaler? textScaler,
+    int? maxLines,
+    String? semanticsLabel,
+    TextWidthBasis? textWidthBasis,
+    TextHeightBehavior? textHeightBehavior,
+    Color? selectionColor,
   }) =>
       ThemedText._internal(
         data,
         key: key,
         getTextStyle: (theme) => theme.textTheme.bodyMedium,
-        options: options,
+        style: style,
+        strutStyle: strutStyle,
+        textAlign: textAlign,
+        textDirection: textDirection,
+        locale: locale,
+        softWrap: softWrap,
+        overflow: overflow,
+        textScaler: textScaler,
+        maxLines: maxLines,
+        semanticsLabel: semanticsLabel,
+        textWidthBasis: textWidthBasis,
+        textHeightBehavior: textHeightBehavior,
+        selectionColor: selectionColor,
       );
 
   factory ThemedText.bodySmall(
     String data, {
     Key? key,
-    TextOptions? options,
+    TextStyle? style,
+    StrutStyle? strutStyle,
+    TextAlign? textAlign,
+    TextDirection? textDirection,
+    Locale? locale,
+    bool? softWrap,
+    TextOverflow? overflow,
+    TextScaler? textScaler,
+    int? maxLines,
+    String? semanticsLabel,
+    TextWidthBasis? textWidthBasis,
+    TextHeightBehavior? textHeightBehavior,
+    Color? selectionColor,
   }) =>
       ThemedText._internal(
         data,
         key: key,
         getTextStyle: (theme) => theme.textTheme.bodySmall,
-        options: options,
+        style: style,
+        strutStyle: strutStyle,
+        textAlign: textAlign,
+        textDirection: textDirection,
+        locale: locale,
+        softWrap: softWrap,
+        overflow: overflow,
+        textScaler: textScaler,
+        maxLines: maxLines,
+        semanticsLabel: semanticsLabel,
+        textWidthBasis: textWidthBasis,
+        textHeightBehavior: textHeightBehavior,
+        selectionColor: selectionColor,
       );
 
   factory ThemedText.labelLarge(
     String data, {
     Key? key,
-    TextOptions? options,
+    TextStyle? style,
+    StrutStyle? strutStyle,
+    TextAlign? textAlign,
+    TextDirection? textDirection,
+    Locale? locale,
+    bool? softWrap,
+    TextOverflow? overflow,
+    TextScaler? textScaler,
+    int? maxLines,
+    String? semanticsLabel,
+    TextWidthBasis? textWidthBasis,
+    TextHeightBehavior? textHeightBehavior,
+    Color? selectionColor,
   }) =>
       ThemedText._internal(
         data,
         key: key,
         getTextStyle: (theme) => theme.textTheme.labelLarge,
-        options: options,
+        style: style,
+        strutStyle: strutStyle,
+        textAlign: textAlign,
+        textDirection: textDirection,
+        locale: locale,
+        softWrap: softWrap,
+        overflow: overflow,
+        textScaler: textScaler,
+        maxLines: maxLines,
+        semanticsLabel: semanticsLabel,
+        textWidthBasis: textWidthBasis,
+        textHeightBehavior: textHeightBehavior,
+        selectionColor: selectionColor,
       );
 
   factory ThemedText.labelMedium(
     String data, {
     Key? key,
-    TextOptions? options,
+    TextStyle? style,
+    StrutStyle? strutStyle,
+    TextAlign? textAlign,
+    TextDirection? textDirection,
+    Locale? locale,
+    bool? softWrap,
+    TextOverflow? overflow,
+    TextScaler? textScaler,
+    int? maxLines,
+    String? semanticsLabel,
+    TextWidthBasis? textWidthBasis,
+    TextHeightBehavior? textHeightBehavior,
+    Color? selectionColor,
   }) =>
       ThemedText._internal(
         data,
         key: key,
         getTextStyle: (theme) => theme.textTheme.labelMedium,
-        options: options,
+        style: style,
+        strutStyle: strutStyle,
+        textAlign: textAlign,
+        textDirection: textDirection,
+        locale: locale,
+        softWrap: softWrap,
+        overflow: overflow,
+        textScaler: textScaler,
+        maxLines: maxLines,
+        semanticsLabel: semanticsLabel,
+        textWidthBasis: textWidthBasis,
+        textHeightBehavior: textHeightBehavior,
+        selectionColor: selectionColor,
       );
 
   factory ThemedText.labelSmall(
     String data, {
     Key? key,
-    TextOptions? options,
+    TextStyle? style,
+    StrutStyle? strutStyle,
+    TextAlign? textAlign,
+    TextDirection? textDirection,
+    Locale? locale,
+    bool? softWrap,
+    TextOverflow? overflow,
+    TextScaler? textScaler,
+    int? maxLines,
+    String? semanticsLabel,
+    TextWidthBasis? textWidthBasis,
+    TextHeightBehavior? textHeightBehavior,
+    Color? selectionColor,
   }) =>
       ThemedText._internal(
         data,
         key: key,
         getTextStyle: (theme) => theme.textTheme.labelSmall,
-        options: options,
+        style: style,
+        strutStyle: strutStyle,
+        textAlign: textAlign,
+        textDirection: textDirection,
+        locale: locale,
+        softWrap: softWrap,
+        overflow: overflow,
+        textScaler: textScaler,
+        maxLines: maxLines,
+        semanticsLabel: semanticsLabel,
+        textWidthBasis: textWidthBasis,
+        textHeightBehavior: textHeightBehavior,
+        selectionColor: selectionColor,
       );
 
   @override
@@ -235,20 +585,19 @@ class ThemedText extends StatelessWidget {
 
     final text = Text(
       data,
-      key: options?.key,
-      style: options?.style,
-      strutStyle: options?.strutStyle,
-      textAlign: options?.textAlign,
-      textDirection: options?.textDirection,
-      locale: options?.locale,
-      softWrap: options?.softWrap,
-      overflow: options?.overflow,
-      textScaler: options?.textScaler,
-      maxLines: options?.maxLines,
-      semanticsLabel: options?.semanticsLabel,
-      textWidthBasis: options?.textWidthBasis,
-      textHeightBehavior: options?.textHeightBehavior,
-      selectionColor: options?.selectionColor,
+      style: style,
+      strutStyle: strutStyle,
+      textAlign: textAlign,
+      textDirection: textDirection,
+      locale: locale,
+      softWrap: softWrap,
+      overflow: overflow,
+      textScaler: textScaler,
+      maxLines: maxLines,
+      semanticsLabel: semanticsLabel,
+      textWidthBasis: textWidthBasis,
+      textHeightBehavior: textHeightBehavior,
+      selectionColor: selectionColor,
     );
 
     if (style == null) return text;

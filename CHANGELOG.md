@@ -27,3 +27,8 @@ Features for initial release:
 - Add `Wrapper` type and `wrapped` extension
 - Add `Link` widget
 - Add `Pagination` widgets
+
+## 0.3.0
+
+- Update to Flutter 3.16.0
+- Replace `TextOptions` by constructor parameters for `ThemedText`
