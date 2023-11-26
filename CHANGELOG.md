@@ -40,3 +40,7 @@ Features for initial release:
 ## 0.3.2.
 
 - Refactor `ThemedText` constructors to be constant
+
+## 0.3.3.
+
+- Use strict language options

@@ -32,7 +32,7 @@ void main() {
 
       final result = <int>[].separatedBy(getSeparator);
 
-      expect(result, []);
+      expect(result, <int>[]);
       expect(getSeparatorCalled, false);
     });
 
@@ -56,7 +56,7 @@ void main() {
     });
 
     test('does not insert separators when given an empty list', () {
-      expect([].separated(0), []);
+      expect(<int>[].separated(0), <int>[]);
     });
 
     test('does not insert separators when given a list with a single item', () {

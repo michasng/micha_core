@@ -101,7 +101,7 @@ class _PaginationState<T> extends State<Pagination<T>> {
           ),
           if (widget.showControls && paginated.totalItemCount > 1) ...[
             const Gap(),
-            PaginationControls(
+            PaginationControls<T>(
               currentPageIndex: _currentPageIndex,
               pageCount: (_totalCount! / widget.maxPageSize).ceil(),
               jumpToPage: _jumpToPage,
