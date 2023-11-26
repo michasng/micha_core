@@ -77,6 +77,54 @@ Use `byNameOrNull` to receive `null` instead:
 TestEnum.values.byValueOrNull('four');
 ```
 
+### Logging
+
+Quickly setup colored log printing for your terminal by calling `initLogging()`. This will also make the log level of your project independent of the log level of its dependencies.
+
+```dart
+void main() {
+  initLogging({
+    // these are the default levels
+    projectLogLevel: Level.ALL,
+    dependenciesLogLevel: Level.WARNING,
+  });
+  runApp(const App());
+}
+```
+
+Then create and use specific loggers for any type:
+
+```dart
+class MyClass {
+  static final logger = createLogger(MyClass);
+
+  ...
+
+  void logSomething {
+    logger.info('something');
+  }
+}
+```
+
+Log messages will be formatted like `INFO    2023-11-26T20:53:56.712849 MyClass: something`.
+
+### ANSI String formatting
+
+You can print colored or otherwise formatted Strings to consoles by using getter extension methods for ANSI control sequences:
+
+```dart
+logger.info('foo'.red.bold.italic.underline);
+```
+
+Use `reset` to remove all styles.
+Use `hidden` to make a String invisible.
+Use `bold`, `dim`, `italic`, `underline`, `overline`, `strikeThrough` for the respective formatting.
+Use `black`, `red`, `green`, `yellow`, `blue`, `magenta`, `cyan` and `white` to apply the respective foreground color.
+Use `bgBlack`, `bgRed`, `bgGreen`, `bgYellow`, `bgBlue`, `bgMagenta`, `bgCyan` and `bgWhite` to apply the respective background color.
+Use `inverse` to switch foreground and background colors.
+
+Bright colors are not included, because they are not supported by all terminals.
+
 ### Gap
 
 We often require some small space between widgets. Flutter's widget catalog has limited options:

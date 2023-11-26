@@ -48,3 +48,5 @@ Features for initial release:
 ## 0.4.0
 
 - Add `TextStyleLocator` to public API
+- Add `AnsiFormatting` extension
+- Add logging functions, like `initLogging` and `createLogger`
