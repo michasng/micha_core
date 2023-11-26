@@ -49,7 +49,10 @@ class PaginationThemeData extends ThemeExtension<PaginationThemeData> {
       currentPageLabelStyle:
           TextStyle.lerp(currentPageLabelStyle, other.currentPageLabelStyle, t),
       jumpToNumberedPageStyle: TextStyle.lerp(
-          jumpToNumberedPageStyle, other.jumpToNumberedPageStyle, t),
+        jumpToNumberedPageStyle,
+        other.jumpToNumberedPageStyle,
+        t,
+      ),
       jumpToPreviousPageIcon:
           t < 0.5 ? jumpToPreviousPageIcon : other.jumpToPreviousPageIcon,
     );

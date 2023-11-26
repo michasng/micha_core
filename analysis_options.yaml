@@ -4,3 +4,6 @@ include: package:flutter_lints/flutter.yaml
 linter:
   rules:
     prefer_single_quotes: true
+    directives_ordering: true
+    require_trailing_commas: true
+    use_super_parameters: true

@@ -12,8 +12,10 @@ class SpinnerThemeData extends ThemeExtension<SpinnerThemeData> {
     this.size,
     this.strokeWidth,
   })  : assert(size == null || size > 0, 'size must be positive or null.'),
-        assert(strokeWidth == null || strokeWidth > 0,
-            'strokeWidth must be positive or null.');
+        assert(
+          strokeWidth == null || strokeWidth > 0,
+          'strokeWidth must be positive or null.',
+        );
 
   @override
   SpinnerThemeData copyWith({
