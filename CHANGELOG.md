@@ -44,3 +44,7 @@ Features for initial release:
 ## 0.3.3.
 
 - Use strict language options
+
+## 0.4.0
+
+- Add `TextStyleLocator` to public API

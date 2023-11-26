@@ -16,4 +16,5 @@ export 'src/pagination/pagination.dart';
 export 'src/pagination/pagination_controls.dart';
 export 'src/pagination/pagination_theme_data.dart';
 export 'src/text/link.dart';
+export 'src/text/text_style_locator.dart';
 export 'src/text/themed_text.dart';
