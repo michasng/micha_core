@@ -1,4 +1,4 @@
-Extensions and widgets that are missing in Flutter's SDK.
+Extensions, widgets and other utilities that are missing in Flutter's SDK.
 
 ## Features
 
