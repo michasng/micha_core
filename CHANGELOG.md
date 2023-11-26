@@ -36,3 +36,7 @@ Features for initial release:
 ## 0.3.1.
 
 - Fix custom styles not being applied to `ThemedText`
+
+## 0.3.2.
+
+- Refactor `ThemedText` constructors to be constant
