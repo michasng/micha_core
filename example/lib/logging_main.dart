@@ -25,15 +25,14 @@ class HomePage extends StatelessWidget {
 
   void _log() {
     final messages = [
-      'reset'.reset,
       'bold'.bold,
       'dim'.dim,
       'italic'.italic,
-      'underline'.underline,
-      'overline'.overline,
-      'inverse'.inverse,
+      'underlined'.underlined,
+      'overlined'.overlined,
+      'inverted'.inverted,
       'hidden'.hidden,
-      'strikeThrough'.strikeThrough,
+      'struckThrough'.struckThrough,
       'black'.black,
       'red'.red,
       'green'.green,
@@ -53,8 +52,21 @@ class HomePage extends StatelessWidget {
     ];
 
     for (final message in messages) {
-      logger.info(message);
+      logger.info('$message - then implicitly reset');
     }
+
+    final chainedStyles = 'chained styles'.bold.italic.underlined.yellow;
+    logger.info('$chainedStyles - then implictly reset all');
+
+    final chainedSgrCodes = 'chained SGR codes'
+        .style(SgrCode.bold)
+        .style(SgrCode.italic)
+        .style(SgrCode.underlined)
+        .style(SgrCode.yellow);
+    // not using string interpolation,
+    // because resetAll on the entire string would first reset,
+    // then apply the chained styles
+    logger.info(chainedSgrCodes + ' - then explicitly reset all'.resetAll);
 
     logger.finest('finest');
     logger.finer('finer');

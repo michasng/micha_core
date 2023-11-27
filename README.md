@@ -116,12 +116,12 @@ You can print colored or otherwise formatted Strings to consoles by using getter
 logger.info('foo'.red.bold.italic.underline);
 ```
 
-Use `reset` to remove all styles.
+Use `resetAll` to reset any prior styles.
 Use `hidden` to make a String invisible.
-Use `bold`, `dim`, `italic`, `underline`, `overline`, `strikeThrough` for the respective formatting.
+Use `bold`, `dim`, `italic`, `underlined`, `overlined`, `struckThrough` for the respective formatting.
 Use `black`, `red`, `green`, `yellow`, `blue`, `magenta`, `cyan` and `white` to apply the respective foreground color.
 Use `bgBlack`, `bgRed`, `bgGreen`, `bgYellow`, `bgBlue`, `bgMagenta`, `bgCyan` and `bgWhite` to apply the respective background color.
-Use `inverse` to switch foreground and background colors.
+Use `inverted` to swap foreground and background colors.
 
 Bright colors are not included, because they are not supported by all terminals.
 

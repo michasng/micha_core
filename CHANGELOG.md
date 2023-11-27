@@ -50,3 +50,7 @@ Features for initial release:
 - Add `TextStyleLocator` to public API
 - Add `AnsiFormatting` extension
 - Add logging functions, like `initLogging` and `createLogger`
+
+## 0.4.1
+
+- Minor improvements and additions to the ANSI formatting API
