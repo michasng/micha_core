@@ -54,3 +54,7 @@ Features for initial release:
 ## 0.4.1
 
 - Minor improvements and additions to the ANSI formatting API
+
+## 0.4.2
+
+- Fix code formatting

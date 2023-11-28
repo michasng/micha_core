@@ -58,7 +58,8 @@ extension AnsiFormatting on String {
 
   /// Get with an SGR code applied and an additional code to reset at the end.
   /// Resetting may only be noticable when appending strings,
-  String styleThenReset(SgrCode code, SgrCode resetCode) => '$code$this$resetCode';
+  String styleThenReset(SgrCode code, SgrCode resetCode) =>
+      '$code$this$resetCode';
 
   /// get with any prior styles reset
   String get resetAll => style(SgrCode.reset);
