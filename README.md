@@ -74,7 +74,7 @@ But what if that value does not exist? Dart will throw an `ArgumentError`.
 Use `byNameOrNull` to receive `null` instead:
 
 ```dart
-TestEnum.values.byValueOrNull('four');
+TestEnum.values.byNameOrNull('four');
 ```
 
 ### Logging
