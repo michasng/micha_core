@@ -100,6 +100,36 @@ Calling `nullWhenEmpty` is equivalent to the following `transform`:
 final maybeNull = maybeEmpty.transform((it) => it.isEmpty ? null : it);
 ```
 
+### Get a non-null value from a Map with "getOrPut"
+
+Getting a value from a Map returns a nullable value:
+
+```dart
+final fooMap = {
+  'foo': 1,
+};
+
+final foo = fooMap['foo']; // `foo` has type `int?` instead of `int`
+assert(foo == 1);
+
+final fee = fooMap['fee'];
+assert(fee == null);
+```
+
+There are times where you may instead want to get a default value that is also inserted into the Map immediately. Use `getOrPut` for this:
+
+```dart
+final fooMap = {
+  'foo': 1,
+};
+
+final foo = fooMap.getOrPut('foo', () => 0); // `foo` has type `int`
+assert(foo == 1);
+
+final fee = fooMap.getOrPut('fee', () => 0);
+assert(fee == 0);
+```
+
 ### Find enum values "byNameOrNull"
 
 In dart, you can find enum values by their names, like:
