@@ -58,3 +58,10 @@ Features for initial release:
 ## 0.4.2
 
 - Fix code formatting
+
+## 0.5.0
+
+- Add `transform` extension on all types
+- Add `nullWhenEmpty` extension on any Iterable or Map
+- Add `getOrPut` extension on Map
+- Add `waitFor` to await a condition
