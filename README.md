@@ -60,6 +60,26 @@ Any value can be wrapped by calling the `wrapped` getter on it:
 fooInstance.copyWith(foo: 1.5.wrapped);
 ```
 
+### Map or "transform" individual values
+
+We sometimes need to use ternary operators to deal with nullable types, which is needlessly imperative and can lead to undesired method calls:
+
+```dart
+children: [
+  foo() == null ? null : Text(foo()),
+]
+```
+
+Note that `foo` may be called twice in this example.
+
+We can instead use a more functional approach: `transform` can be called on any value and behaves similarly to the `map` function on iterables:
+
+```dart
+children: [
+  foo()?.transform((value) => Text(value)),
+]
+```
+
 ### Find enum values "byNameOrNull"
 
 In dart, you can find enum values by their names, like:
