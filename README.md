@@ -147,6 +147,30 @@ Use `byNameOrNull` to receive `null` instead:
 TestEnum.values.byNameOrNull('four');
 ```
 
+### waiting for a condition to be fulfilled
+
+`waitFor` repeatedly calls and waits until a given `condition` returns `true`.
+
+It needs to be called with `await` in a function marked as `async`:
+
+```dart
+bool condition() {
+  // ...
+}
+
+void foo() async {
+  await waitFor(
+    condition,
+    timeout: const Duration(seconds: 10),
+    interval: const Duration(milliseconds: 100),
+  );
+}
+```
+
+The caller can pass a `timeout` to set a maximum time to wait, after which a `TimeoutException` will be thrown. There is no timeout by default.
+
+The caller can also override the default `interval` of `200` milliseconds, which is the idle duration between checking `condition`.
+
 ### Logging
 
 Quickly setup colored log printing for your terminal by calling `initLogging()`. This will also make the log level of your project independent of the log level of its dependencies.
