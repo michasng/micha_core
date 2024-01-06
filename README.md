@@ -80,6 +80,26 @@ children: [
 ]
 ```
 
+### Convert empty Iterable/Map to null
+
+There is an extension on any `Iterable` or `Map` to convert them to null when they're empty:
+
+```dart
+final List<int> itMaybeEmpty = [];
+final List<int>? itMaybeNull = itMaybeEmpty.nullWhenEmpty;
+assert(itMaybeNull == null);
+
+final Map<String, int> mapMaybeEmpty = {};
+final Map<String, int>? mapMaybeNull = mapMaybeEmpty.nullWhenEmpty;
+assert(mapMaybeNull == null);
+```
+
+Calling `nullWhenEmpty` is equivalent to the following `transform`:
+
+```dart
+final maybeNull = maybeEmpty.transform((it) => it.isEmpty ? null : it);
+```
+
 ### Find enum values "byNameOrNull"
 
 In dart, you can find enum values by their names, like:
