@@ -65,3 +65,7 @@ Features for initial release:
 - Add `nullWhenEmpty` extension on any Iterable or Map
 - Add `getOrPut` extension on Map
 - Add `waitFor` to await a condition
+
+## 0.5.1
+
+- Fix missing exports
