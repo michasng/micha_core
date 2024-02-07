@@ -74,7 +74,11 @@ class HomePage extends StatelessWidget {
     logger.info('info');
     logger.config('config');
     logger.warning('warning');
-    logger.severe('severe');
+    logger.severe(
+      'severe',
+      Exception('This is just an example.'),
+      StackTrace.current,
+    );
     logger.shout('shout');
   }
 

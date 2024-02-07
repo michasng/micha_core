@@ -41,7 +41,11 @@ String _formatLogRecord(LogRecord record) {
   final level = record.level.name.padRight(7, ' ');
   final isoTime = record.time.toIso8601String();
 
-  return '$level $isoTime ${record.loggerName}: ${record.message}';
+  return [
+    '$level $isoTime ${record.loggerName}: ${record.message}',
+    if (record.error != null) record.error.toString(),
+    if (record.stackTrace != null) record.stackTrace.toString(),
+  ].join('\n');
 }
 
 /// Recommended way to create a new [Logger] for a given type.
