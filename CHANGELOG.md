@@ -69,3 +69,7 @@ Features for initial release:
 ## 0.5.1
 
 - Fix missing exports
+
+## 0.5.2
+
+- Include exceptions and stack traces in formatted log messages
