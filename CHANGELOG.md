@@ -75,6 +75,7 @@ Features for initial release:
 - Include exceptions and stack traces in formatted log messages
 
 
-## 0.5.3
+## 1.0.0
 
 - Add `nullWhenEmpty` extension on `String`
+- Update and restrict dependencies
