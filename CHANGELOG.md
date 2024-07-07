@@ -80,3 +80,7 @@ Features for initial release:
 - Add `nullWhenEmpty` extension on `String`
 - Update and restrict dependencies
 - Add `split` extension on any `Iterable` or `List`
+
+## 1.0.1
+
+- Fix missing exports

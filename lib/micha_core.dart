@@ -8,6 +8,7 @@ export 'src/extensions/by_name_or_null.dart';
 export 'src/extensions/get_or_put.dart';
 export 'src/extensions/null_when_empty.dart';
 export 'src/extensions/separated.dart';
+export 'src/extensions/split.dart';
 export 'src/extensions/times.dart';
 export 'src/extensions/transform.dart';
 export 'src/extensions/wrapped.dart';
