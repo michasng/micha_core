@@ -3,8 +3,8 @@ description: Extensions, widgets and other utilities that are missing in Flutter
 version: 0.5.2
 repository: https://github.com/michasng/micha_core
 environment:
-  sdk: ">=3.1.5 <4.0.0"
-  flutter: ">=1.17.0"
+  sdk: ">=3.4.3 <4.0.0"
+  flutter: ">=3.22.2"
 dependencies:
   flutter:
     sdk: flutter
@@ -12,7 +12,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
+  flutter_lints: ^4.0.0
 flutter:
 platforms:
   android:
