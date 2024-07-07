@@ -23,6 +23,22 @@ Are these separators dependent on preceding and succeeding items? Use `collectio
 [1, 2, 3].separatedBy((before, after) => before + after); // [1, 3, 2, 5, 3]
 ```
 
+### Split items of collections
+
+In dart, it is trivial to split a string by any pattern, like this:
+
+```dart
+"abc".split("b"); // ["a", "b"]
+```
+
+This functionality didn't exist for arbitrary lists and Iterables.
+It has been added as an extension and is used like this:
+
+```dart
+[1, 2, 3, 4].split((item) => item == 2); // [[1], [3, 4]]
+[1, 2, 3, 4].splitIndexed((index, item) => index == 2); // [[1, 2], [4]]
+```
+
 ### Wrapper for Optional parameters
 
 Ever needed to differentiate the value of a nullable parameter that was purposefully passed as `null` from a value that was simply omitted?  

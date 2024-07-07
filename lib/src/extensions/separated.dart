@@ -23,13 +23,15 @@ extension IterableSeparated<T> on Iterable<T> {
   }
 }
 
-/// Functions are identical to those of IterableSeparated.
-/// Results are converted into lists, so the original list is not modified.
+/// Functions are identical to those of [IterableSeparated].
+/// Results are converted to lists, so the original list is not modified.
 extension ListSeparated<T> on List<T> {
+  /// Concatenates items by the result of a callback. Cmp. [IterableSeparated.separated].
   List<T> separated(T separator) {
     return IterableSeparated(this).separated(separator).toList();
   }
 
+  /// Concatenates items by a constant separator. Cmp. [IterableSeparated.separatedBy].
   List<T> separatedBy(T? Function(T before, T after) getSeparator) {
     return IterableSeparated(this).separatedBy(getSeparator).toList();
   }
