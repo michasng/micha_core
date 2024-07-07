@@ -17,3 +17,12 @@ extension MapNullWhenEmpty<TKey, TValue, TMap extends Map<TKey, TValue>>
     return this;
   }
 }
+
+extension StringNullWhenEmpty on String {
+  /// Returns null when this is empty.
+  /// Returns this when not empty.
+  String? get nullWhenEmpty {
+    if (isEmpty) return null;
+    return this;
+  }
+}

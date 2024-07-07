@@ -62,8 +62,8 @@ Features for initial release:
 ## 0.5.0
 
 - Add `transform` extension on all types
-- Add `nullWhenEmpty` extension on any Iterable or Map
-- Add `getOrPut` extension on Map
+- Add `nullWhenEmpty` extension on any `Iterable` or `Map`
+- Add `getOrPut` extension on `Map`
 - Add `waitFor` to await a condition
 
 ## 0.5.1
@@ -73,3 +73,8 @@ Features for initial release:
 ## 0.5.2
 
 - Include exceptions and stack traces in formatted log messages
+
+
+## 0.5.3
+
+- Add `nullWhenEmpty` extension on `String`

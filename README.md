@@ -92,6 +92,10 @@ assert(itMaybeNull == null);
 final Map<String, int> mapMaybeEmpty = {};
 final Map<String, int>? mapMaybeNull = mapMaybeEmpty.nullWhenEmpty;
 assert(mapMaybeNull == null);
+
+final String strMaybeEmpty = "";
+final String? strMaybeNull = strMaybeEmpty.nullWhenEmpty;
+assert(strMaybeNull == null);
 ```
 
 Calling `nullWhenEmpty` is equivalent to the following `transform`:
