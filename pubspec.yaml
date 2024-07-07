@@ -1,6 +1,6 @@
 name: micha_core
 description: Extensions, widgets and other utilities that are missing in Flutter's SDK.
-version: 0.5.2
+version: 1.0.0
 repository: https://github.com/michasng/micha_core
 environment:
   sdk: ">=3.4.3 <4.0.0"
