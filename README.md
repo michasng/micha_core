@@ -191,6 +191,44 @@ The caller can pass a `timeout` to set a maximum time to wait, after which a `Ti
 
 The caller can also override the default `interval` of `200` milliseconds, which is the idle duration between checking `condition`.
 
+### retrying operations
+
+The `retried` function retries a given `operation` until it succeeds and forwards the return value.
+A call is attempted at least once and at most `maxAttemptCount` times.
+
+The `operation` is retried after throwing an exception of type `TException` or after any exception, if no type is specified.
+Use `shouldRetry` to further restrict exceptions to retry for.
+
+Uses exponential backoff by default, but a different `strategy` can be used.
+A `RetryException` Can be thrown with a custom `delay` to override the `strategy`.
+
+```dart
+final response = await retried<int, RetryException>(
+  () async {
+    final response = makeHttpCall();
+    if (response.status == 429) {
+      throw RetryException(
+        'Too Many Requests',
+        delay: Duration(seconds: int.parse(response.headers['Retry-After'])),
+      );
+    }
+    return response;
+  },
+);
+```
+
+### rate limiting
+
+The `RateLimiter` class enforces a minimum time interval between consecutive executions of any given operation.
+This is useful in scenarios where you want to throttle the execution of tasks to avoid overloading a system or API.
+
+```dart
+final rateLimiter = RateLimiter<int>(Duration(seconds: 1)); // sets the interval at which operations can be called
+
+await rateLimiter.execute(() async => 42);
+await rateLimiter.execute(() async => 42); // waits for the duration of the interval
+```
+
 ### Logging
 
 Quickly setup colored log printing for your terminal by calling `initLogging()`. This will also make the log level of your project independent of the log level of its dependencies.

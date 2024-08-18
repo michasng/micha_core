@@ -74,7 +74,6 @@ Features for initial release:
 
 - Include exceptions and stack traces in formatted log messages
 
-
 ## 1.0.0
 
 - Add `nullWhenEmpty` extension on `String`
@@ -88,3 +87,6 @@ Features for initial release:
 ## 1.1.0
 
 - Fix unreachable timeout in `waitFor`
+- Add `clamp` extension on `Duration`
+- Add `retried` function, including `createExponentialBackoff` and `RetryException`.
+- Add `RateLimiter` class
