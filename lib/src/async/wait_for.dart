@@ -9,14 +9,17 @@ Future<void> waitFor(
   FutureOr<bool> Function() condition, {
   Duration? timeout,
   Duration interval = const Duration(milliseconds: 200),
+  DateTime Function() nowProvider = DateTime.now,
+  Future<void> Function(Duration duration) waitForDuration =
+      Future<void>.delayed,
 }) async {
-  final startTime = DateTime.now();
+  final startTime = nowProvider();
   while (true) {
     if (await condition()) return;
 
     var effectiveInterval = interval;
     if (timeout != null) {
-      final passedTime = startTime.difference(DateTime.now());
+      final passedTime = nowProvider().difference(startTime);
       if (passedTime > timeout) {
         throw TimeoutException(
           'Condition did not pass within specified time.',
@@ -26,6 +29,6 @@ Future<void> waitFor(
       effectiveInterval = remainingTime < interval ? remainingTime : interval;
     }
 
-    await Future<void>.delayed(effectiveInterval);
+    await waitForDuration(effectiveInterval);
   }
 }

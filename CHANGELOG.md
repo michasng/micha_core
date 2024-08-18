@@ -84,3 +84,7 @@ Features for initial release:
 ## 1.0.1
 
 - Fix missing exports
+
+## 1.1.0
+
+- Fix unreachable timeout in `waitFor`
