@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:micha_core/src/async/spinner.dart';
 
 typedef BuilderCallback<T> = Widget Function(
