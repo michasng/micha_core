@@ -8,7 +8,6 @@ export 'src/async/wait_for.dart';
 export 'src/extensions/ansi_formatting.dart';
 export 'src/extensions/by_name_or_null.dart';
 export 'src/extensions/clamp.dart';
-export 'src/extensions/get_or_put.dart';
 export 'src/extensions/null_when_empty.dart';
 export 'src/extensions/separated.dart';
 export 'src/extensions/split.dart';

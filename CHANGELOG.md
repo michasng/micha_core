@@ -90,3 +90,7 @@ Features for initial release:
 - Add `clamp` extension on `Duration`
 - Add `retried` function, including `createExponentialBackoff` and `RetryException`.
 - Add `RateLimiter` class
+
+## 2.0.0
+
+- Remove `getOrPut`. Use `putIfAbsent` instead.
