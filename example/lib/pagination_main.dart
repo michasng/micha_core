@@ -8,10 +8,7 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: 'Pagination Example',
-      home: HomePage(),
-    );
+    return const MaterialApp(title: 'Pagination Example', home: HomePage());
   }
 }
 
@@ -31,8 +28,9 @@ class _HomePageState extends State<HomePage> {
     await Future.delayed(const Duration(milliseconds: 500));
     return Paginated(
       totalItemCount: 200,
-      items: maxPageSize
-          .times((index) => 'item ${(pageIndex * maxPageSize) + index + 1}'),
+      items: maxPageSize.times(
+        (index) => 'item ${(pageIndex * maxPageSize) + index + 1}',
+      ),
     );
   }
 
@@ -69,10 +67,7 @@ class _HomePageState extends State<HomePage> {
                 getPage: _getPage,
                 builder: (context, items) => ListView(
                   children: [
-                    for (final item in items)
-                      ListTile(
-                        title: Text(item),
-                      ),
+                    for (final item in items) ListTile(title: Text(item)),
                   ],
                 ),
               ),

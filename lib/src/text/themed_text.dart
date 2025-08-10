@@ -332,10 +332,7 @@ class ThemedText extends StatelessWidget {
 
     final defaultStyle = defaultStyleLocator.locate(theme);
     if (defaultStyle != null) {
-      return DefaultTextStyle(
-        style: defaultStyle,
-        child: text,
-      );
+      return DefaultTextStyle(style: defaultStyle, child: text);
     }
 
     return text;

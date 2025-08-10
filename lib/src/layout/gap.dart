@@ -7,15 +7,11 @@ import 'package:micha_core/src/extensions/wrapped.dart';
 class GapThemeData extends ThemeExtension<GapThemeData> {
   final double? size;
 
-  const GapThemeData({
-    required this.size,
-  });
+  const GapThemeData({required this.size});
 
   @override
   GapThemeData copyWith({Wrapper<double?>? size}) {
-    return GapThemeData(
-      size: size == null ? this.size : size.value,
-    );
+    return GapThemeData(size: size == null ? this.size : size.value);
   }
 
   @override
@@ -23,9 +19,7 @@ class GapThemeData extends ThemeExtension<GapThemeData> {
     if (other is! GapThemeData) {
       return this;
     }
-    return GapThemeData(
-      size: lerpDouble(size, other.size, t),
-    );
+    return GapThemeData(size: lerpDouble(size, other.size, t));
   }
 }
 
@@ -40,38 +34,22 @@ class Gap extends StatelessWidget {
   /// If the [ThemeExtension] is not used, then it will default to [defaultGapSize].
   /// Pass a [scale] or use the overloaded operators if more or less space is desired,
   /// relative to the otherwise configured size.
-  const Gap({
-    super.key,
-    this.size,
-    this.scale = 1,
-  });
+  const Gap({super.key, this.size, this.scale = 1});
 
   Gap operator +(double summand) {
-    return Gap(
-      size: size,
-      scale: scale + summand,
-    );
+    return Gap(size: size, scale: scale + summand);
   }
 
   Gap operator -(double subtrahend) {
-    return Gap(
-      size: size,
-      scale: scale * subtrahend,
-    );
+    return Gap(size: size, scale: scale * subtrahend);
   }
 
   Gap operator *(double factor) {
-    return Gap(
-      size: size,
-      scale: scale * factor,
-    );
+    return Gap(size: size, scale: scale * factor);
   }
 
   Gap operator /(double divisor) {
-    return Gap(
-      size: size,
-      scale: scale / divisor,
-    );
+    return Gap(size: size, scale: scale / divisor);
   }
 
   @override
@@ -81,9 +59,6 @@ class Gap extends StatelessWidget {
     final sizeNonNull = size ?? gapTheme?.size ?? defaultGapSize;
     final scaledSize = sizeNonNull * scale;
 
-    return SizedBox(
-      width: scaledSize,
-      height: scaledSize,
-    );
+    return SizedBox(width: scaledSize, height: scaledSize);
   }
 }

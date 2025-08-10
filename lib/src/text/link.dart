@@ -6,16 +6,10 @@ class LinkThemeData extends ThemeExtension<LinkThemeData> {
   final Color? color;
   final bool? underlined;
 
-  const LinkThemeData({
-    required this.color,
-    required this.underlined,
-  });
+  const LinkThemeData({required this.color, required this.underlined});
 
   @override
-  LinkThemeData copyWith({
-    Wrapper<Color?>? color,
-    Wrapper<bool?>? underlined,
-  }) {
+  LinkThemeData copyWith({Wrapper<Color?>? color, Wrapper<bool?>? underlined}) {
     return LinkThemeData(
       color: color == null ? this.color : color.value,
       underlined: underlined == null ? this.underlined : underlined.value,

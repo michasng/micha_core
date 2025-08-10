@@ -8,10 +8,7 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: 'Async Example',
-      home: HomePage(),
-    );
+    return const MaterialApp(title: 'Async Example', home: HomePage());
   }
 }
 
@@ -30,36 +27,35 @@ class _HomePageState extends State<HomePage> {
     const spinnerWithSameHeightAsText = Spinner(size: 20);
 
     return Scaffold(
-        body: Center(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          AsyncBuilder(
-            // only reloads when the key changes
-            key: ValueKey(_reloadCount),
-            createFuture: (_) => Future.delayed(
-              const Duration(seconds: 1),
-              () => 'some data',
+      body: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            AsyncBuilder(
+              // only reloads when the key changes
+              key: ValueKey(_reloadCount),
+              createFuture: (_) =>
+                  Future.delayed(const Duration(seconds: 1), () => 'some data'),
+              builder: (context, data) => Text(data),
+              // Using custom loading indicator to avoid jittering from size changes.
+              // You can also customize the look during error and no-data states.
+              loading: spinnerWithSameHeightAsText,
             ),
-            builder: (context, data) => Text(data),
-            // Using custom loading indicator to avoid jittering from size changes.
-            // You can also customize the look during error and no-data states.
-            loading: spinnerWithSameHeightAsText,
-          ),
-          ElevatedButton(
-            onPressed: () => setState(() {
-              _reloadCount++;
-            }),
-            child: const Text('Reload'),
-          ),
-          // use AsyncBuilder.asset to avoid getting the DefaultAssetBundle from BuildContext
-          AsyncBuilder.asset(
-            (assetBundle) => assetBundle.loadString('assets/file.txt'),
-            builder: (context, data) => Text(data),
-            loading: spinnerWithSameHeightAsText,
-          ),
-        ].separated(const Gap()),
+            ElevatedButton(
+              onPressed: () => setState(() {
+                _reloadCount++;
+              }),
+              child: const Text('Reload'),
+            ),
+            // use AsyncBuilder.asset to avoid getting the DefaultAssetBundle from BuildContext
+            AsyncBuilder.asset(
+              (assetBundle) => assetBundle.loadString('assets/file.txt'),
+              builder: (context, data) => Text(data),
+              loading: spinnerWithSameHeightAsText,
+            ),
+          ].separated(const Gap()),
+        ),
       ),
-    ));
+    );
   }
 }

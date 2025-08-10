@@ -46,15 +46,19 @@ class PaginationThemeData extends ThemeExtension<PaginationThemeData> {
       return this;
     }
     return PaginationThemeData(
-      currentPageLabelStyle:
-          TextStyle.lerp(currentPageLabelStyle, other.currentPageLabelStyle, t),
+      currentPageLabelStyle: TextStyle.lerp(
+        currentPageLabelStyle,
+        other.currentPageLabelStyle,
+        t,
+      ),
       jumpToNumberedPageStyle: TextStyle.lerp(
         jumpToNumberedPageStyle,
         other.jumpToNumberedPageStyle,
         t,
       ),
-      jumpToPreviousPageIcon:
-          t < 0.5 ? jumpToPreviousPageIcon : other.jumpToPreviousPageIcon,
+      jumpToPreviousPageIcon: t < 0.5
+          ? jumpToPreviousPageIcon
+          : other.jumpToPreviousPageIcon,
     );
   }
 }

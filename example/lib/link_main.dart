@@ -8,10 +8,7 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: 'Link Example',
-      home: HomePage(),
-    );
+    return const MaterialApp(title: 'Link Example', home: HomePage());
   }
 }
 
@@ -26,20 +23,12 @@ class HomePage extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Link(
-                onTap: () => {},
-                child: const Text('Default themed'),
-              ),
-              const Link(
-                child: Text('Disabled (no onTap)'),
-              ),
+              Link(onTap: () => {}, child: const Text('Default themed')),
+              const Link(child: Text('Disabled (no onTap)')),
               Theme(
                 data: ThemeData(
                   extensions: const [
-                    LinkThemeData(
-                      color: Colors.green,
-                      underlined: false,
-                    ),
+                    LinkThemeData(color: Colors.green, underlined: false),
                   ],
                 ),
                 child: Link(

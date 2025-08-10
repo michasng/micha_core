@@ -32,13 +32,14 @@ class HomePage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Center(
           child: Column(
-            children: itemCount // generate a list of a given length
-                .times<Widget>(
-                  // use themed Text without referencing BuildContext explicitly
-                  (index) => ThemedText.headlineMedium('item $index'),
-                )
-                // add a Gap in-between the Text widgets, use math operators to modify the scale.
-                .separated(const Gap() + 2),
+            children:
+                itemCount // generate a list of a given length
+                    .times<Widget>(
+                      // use themed Text without referencing BuildContext explicitly
+                      (index) => ThemedText.headlineMedium('item $index'),
+                    )
+                    // add a Gap in-between the Text widgets, use math operators to modify the scale.
+                    .separated(const Gap() + 2),
           ),
         ),
       ),

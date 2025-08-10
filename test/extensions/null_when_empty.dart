@@ -24,13 +24,9 @@ void main() {
     });
 
     test('returns Map unchanged when it is not empty', () {
-      final it = {
-        'a': 1,
-      };
+      final it = {'a': 1};
 
-      expect(it.nullWhenEmpty, {
-        'a': 1,
-      });
+      expect(it.nullWhenEmpty, {'a': 1});
     });
   });
 

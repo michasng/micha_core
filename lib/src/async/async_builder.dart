@@ -1,10 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:micha_core/src/async/spinner.dart';
 
-typedef BuilderCallback<T> = Widget Function(
-  BuildContext context,
-  T data,
-);
+typedef BuilderCallback<T> = Widget Function(BuildContext context, T data);
 
 class AsyncBuilder<T> extends StatefulWidget {
   final Future<T> Function(BuildContext context) createFuture;

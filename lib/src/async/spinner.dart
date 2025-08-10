@@ -8,14 +8,12 @@ class SpinnerThemeData extends ThemeExtension<SpinnerThemeData> {
   final double? size;
   final double? strokeWidth;
 
-  const SpinnerThemeData({
-    this.size,
-    this.strokeWidth,
-  })  : assert(size == null || size > 0, 'size must be positive or null.'),
-        assert(
-          strokeWidth == null || strokeWidth > 0,
-          'strokeWidth must be positive or null.',
-        );
+  const SpinnerThemeData({this.size, this.strokeWidth})
+    : assert(size == null || size > 0, 'size must be positive or null.'),
+      assert(
+        strokeWidth == null || strokeWidth > 0,
+        'strokeWidth must be positive or null.',
+      );
 
   @override
   SpinnerThemeData copyWith({
@@ -46,11 +44,7 @@ class Spinner extends StatelessWidget {
   final double? size;
   final double? strokeWidth;
 
-  const Spinner({
-    super.key,
-    this.size,
-    this.strokeWidth,
-  });
+  const Spinner({super.key, this.size, this.strokeWidth});
 
   @override
   Widget build(BuildContext context) {

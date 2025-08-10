@@ -96,9 +96,7 @@ class _PaginationState<T> extends State<Pagination<T>> {
       createFuture: (context) => _load(),
       builder: (context, paginated) => Column(
         children: [
-          Flexible(
-            child: widget.builder(context, paginated.items),
-          ),
+          Flexible(child: widget.builder(context, paginated.items)),
           if (widget.showControls && paginated.totalItemCount > 1) ...[
             const Gap(),
             PaginationControls<T>(

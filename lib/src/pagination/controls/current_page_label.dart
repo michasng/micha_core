@@ -4,10 +4,7 @@ import 'package:micha_core/src/pagination/pagination_theme_data.dart';
 class CurrentPageLabel extends StatelessWidget {
   final int index;
 
-  const CurrentPageLabel({
-    super.key,
-    required this.index,
-  });
+  const CurrentPageLabel({super.key, required this.index});
 
   @override
   Widget build(BuildContext context) {

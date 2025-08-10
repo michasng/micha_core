@@ -5,10 +5,7 @@ class Paginated<T> {
   final int totalItemCount;
   final List<T> items;
 
-  const Paginated({
-    required this.totalItemCount,
-    required this.items,
-  });
+  const Paginated({required this.totalItemCount, required this.items});
 
   @override
   bool operator ==(Object other) =>
@@ -26,10 +23,7 @@ class Paginated<T> {
   }
 
   Map<String, dynamic> toJson() {
-    return {
-      'totalItemCount': totalItemCount,
-      'items': items,
-    };
+    return {'totalItemCount': totalItemCount, 'items': items};
   }
 
   factory Paginated.fromJson(

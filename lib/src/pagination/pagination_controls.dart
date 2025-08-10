@@ -45,12 +45,7 @@ class PaginationControls<T> extends StatelessWidget {
           i == pageCount - 1 ||
           (i >= currentPageIndex - showPreviousCount && i < currentPageIndex) ||
           (i <= currentPageIndex + showNextCount && currentPageIndex < i)) {
-        controls.add(
-          JumpToNumberedPage(
-            index: i,
-            jumpToPage: jumpToPage,
-          ),
-        );
+        controls.add(JumpToNumberedPage(index: i, jumpToPage: jumpToPage));
         previousIsFiller = false;
         continue;
       }
@@ -65,10 +60,7 @@ class PaginationControls<T> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const disabledButton = IconButton(
-      onPressed: null,
-      icon: SizedBox.shrink(),
-    );
+    const disabledButton = IconButton(onPressed: null, icon: SizedBox.shrink());
 
     return FittedBox(
       child: Row(

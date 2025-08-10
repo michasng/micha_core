@@ -21,9 +21,7 @@ Future<void> waitFor(
     if (timeout != null) {
       final passedTime = nowProvider().difference(startTime);
       if (passedTime > timeout) {
-        throw TimeoutException(
-          'Condition did not pass within specified time.',
-        );
+        throw TimeoutException('Condition did not pass within specified time.');
       }
       final remainingTime = timeout - passedTime;
       effectiveInterval = remainingTime < interval ? remainingTime : interval;

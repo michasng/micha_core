@@ -13,14 +13,8 @@ void main() {
       expect(strategy(3), const Duration(seconds: 4));
       expect(strategy(4), const Duration(seconds: 8));
       expect(strategy(5), const Duration(seconds: 16));
-      expect(
-        strategy(6),
-        const Duration(seconds: 30),
-      ); // capped by maxDelay
-      expect(
-        strategy(7),
-        const Duration(seconds: 30),
-      );
+      expect(strategy(6), const Duration(seconds: 30)); // capped by maxDelay
+      expect(strategy(7), const Duration(seconds: 30));
     });
 
     test('clamps delay to maxDelay', () {
@@ -32,14 +26,8 @@ void main() {
       expect(strategy(2), const Duration(seconds: 1));
       expect(strategy(3), const Duration(seconds: 2));
       expect(strategy(4), const Duration(seconds: 4));
-      expect(
-        strategy(5),
-        const Duration(seconds: 5),
-      ); // capped by maxDelay
-      expect(
-        strategy(6),
-        const Duration(seconds: 5),
-      );
+      expect(strategy(5), const Duration(seconds: 5)); // capped by maxDelay
+      expect(strategy(6), const Duration(seconds: 5));
     });
 
     test('asserts that initialDelay is greater than maxDelay', () {
@@ -57,20 +45,20 @@ void main() {
     const testInitialDelay = Duration(seconds: 1);
     const testMaxDelay = Duration(seconds: 4);
 
-    test('returns immediately if operation succeeds on the first attempt',
-        () async {
-      int attemptCount = 0;
+    test(
+      'returns immediately if operation succeeds on the first attempt',
+      () async {
+        int attemptCount = 0;
 
-      final result = await retried<int, RetryException>(
-        () async {
+        final result = await retried<int, RetryException>(() async {
           attemptCount++;
           return 42;
-        },
-      );
+        });
 
-      expect(attemptCount, equals(1));
-      expect(result, equals(42));
-    });
+        expect(attemptCount, equals(1));
+        expect(result, equals(42));
+      },
+    );
 
     test('retries the specified number of times before succeeding', () async {
       const expectedAttemptCount = 3;
@@ -122,13 +110,10 @@ void main() {
       int attemptCount = 0;
 
       await expectLater(
-        retried<int, RetryException>(
-          () async {
-            attemptCount++;
-            throw Exception('Unknown failure');
-          },
-          waitForDuration: (_) async {},
-        ),
+        retried<int, RetryException>(() async {
+          attemptCount++;
+          throw Exception('Unknown failure');
+        }, waitForDuration: (_) async {}),
         throwsA(isA<Exception>()),
       );
 
@@ -181,10 +166,10 @@ void main() {
 
       expect(attemptCount, equals(expectedAttemptCount));
       expect(result, equals(42));
-      expect(
-        waitedForDurations,
-        [const Duration(seconds: 11), const Duration(seconds: 12)],
-      );
+      expect(waitedForDurations, [
+        const Duration(seconds: 11),
+        const Duration(seconds: 12),
+      ]);
     });
 
     test('uses exponential backoff strategy', () async {
