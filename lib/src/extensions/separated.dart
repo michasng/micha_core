@@ -19,7 +19,7 @@ extension IterableSeparated<T> on Iterable<T> {
 
   /// Concatenates items by a constant separator.
   Iterable<T> separated(T separator) {
-    return separatedBy((_, __) => separator);
+    return separatedBy((_, _) => separator);
   }
 }
 

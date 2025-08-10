@@ -5,10 +5,7 @@ void main() {
   group('separatedBy', () {
     test('separates a list by the return value of getSeparator', () {
       int getSeparator(int before, int after) => before + after;
-      expect(
-        [1, 2, 3].separatedBy(getSeparator),
-        [1, 3, 2, 5, 3],
-      );
+      expect([1, 2, 3].separatedBy(getSeparator), [1, 3, 2, 5, 3]);
     });
 
     test('does not separate items for which getSeparator returns null', () {
@@ -17,15 +14,12 @@ void main() {
         return before + after;
       }
 
-      expect(
-        [1, 2, 3].separatedBy(getSeparator),
-        [1, 2, 5, 3],
-      );
+      expect([1, 2, 3].separatedBy(getSeparator), [1, 2, 5, 3]);
     });
 
     test('does not insert separators when given an empty list', () {
       bool getSeparatorCalled = false;
-      int getSeparator(_, __) {
+      int getSeparator(_, _) {
         getSeparatorCalled = true;
         return 0;
       }
@@ -38,7 +32,7 @@ void main() {
 
     test('does not insert separators when given a list with a single item', () {
       bool getSeparatorCalled = false;
-      int getSeparator(_, __) {
+      int getSeparator(_, _) {
         getSeparatorCalled = true;
         return 0;
       }

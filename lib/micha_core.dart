@@ -1,4 +1,4 @@
-library micha_core;
+library;
 
 export 'src/async/async_builder.dart';
 export 'src/async/rate_limiter.dart';
