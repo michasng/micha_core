@@ -48,11 +48,7 @@ Future<T> retried<T, TException extends Object>(
 
       attemptCount++;
       if (maxAttemptCount != null && attemptCount >= maxAttemptCount) {
-        _logger.severe(
-          'Retry limit reached.',
-          exception,
-          StackTrace.current,
-        );
+        _logger.severe('Retry limit reached.', exception, StackTrace.current);
         rethrow;
       }
 
@@ -63,9 +59,11 @@ Future<T> retried<T, TException extends Object>(
 
       _logger.finest(
         'A retried operation failed. Waiting for ${delay.inMilliseconds / 1000} seconds.',
+        exception,
+        StackTrace.current,
       );
       await waitForDuration(delay);
-      _logger.finest('Retrying (attempt $attemptCount / $maxAttemptCount).');
+      _logger.finer('Retrying (attempt $attemptCount / $maxAttemptCount).');
     }
   }
 }
@@ -81,9 +79,7 @@ class RetryException implements Exception {
   String toString() {
     const type = RetryException;
 
-    final messageLabel = message?.transform(
-      (message) => ': $message',
-    );
+    final messageLabel = message?.transform((message) => ': $message');
     final retryAfterLabel = delay?.transform(
       (duration) => ' (retry after ${duration.inSeconds / 1000} seconds)',
     );

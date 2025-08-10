@@ -95,3 +95,4 @@ Features for initial release:
 
 - Remove `getOrPut`. Use `putIfAbsent` instead.
 - Update dependencies (flutter `>=3.32.8`, dart `>=3.8.1 <4.0.0`)
+- Log exception and stack trace in `retried`.
