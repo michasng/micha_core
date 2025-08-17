@@ -88,19 +88,23 @@ Features for initial release:
 
 - Fix unreachable timeout in `waitFor`
 - Add `clamp` extension on `Duration`
-- Add `retried` function, including `createExponentialBackoff` and `RetryException`.
+- Add `retried` function, including `createExponentialBackoff` and `RetryException`
 - Add `RateLimiter` class
 
 ## 2.0.0
 
-- Remove `getOrPut`. Use `putIfAbsent` instead.
+- Remove `getOrPut`. Use `putIfAbsent` instead
 - Update dependencies (flutter `>=3.32.8`, dart `>=3.8.1 <4.0.0`)
-- Log exception and stack trace in `retried`.
+- Log exception and stack trace in `retried`
 
 # 2.0.1
 
-- Format code.
+- Format code
 
 # 2.0.2
 
-- Fix output of `RetryException.toString()`.
+- Fix output of `RetryException.toString()`
+
+# 2.0.3
+
+- Fix stack trace in log messages for `retried`
