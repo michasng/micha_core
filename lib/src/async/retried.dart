@@ -81,7 +81,7 @@ class RetryException implements Exception {
 
     final messageLabel = message?.transform((message) => ': $message');
     final retryAfterLabel = delay?.transform(
-      (duration) => ' (retry after ${duration.inSeconds / 1000} seconds)',
+      (duration) => ' (retry after ${duration.inMilliseconds / 1000} seconds)',
     );
     return '$type$messageLabel$retryAfterLabel';
   }
