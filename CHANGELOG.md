@@ -100,3 +100,7 @@ Features for initial release:
 # 2.0.1
 
 - Format code.
+
+# 2.0.2
+
+- Fix output of `RetryException.toString()`.
