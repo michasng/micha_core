@@ -41,14 +41,14 @@ Future<T> retried<T, TException extends Object>(
   while (true) {
     try {
       return await operation();
-    } on TException catch (exception) {
+    } on TException catch (exception, stackTrace) {
       if (shouldRetry != null && !shouldRetry(exception)) {
         rethrow;
       }
 
       attemptCount++;
       if (maxAttemptCount != null && attemptCount >= maxAttemptCount) {
-        _logger.severe('Retry limit reached.', exception, StackTrace.current);
+        _logger.severe('Retry limit reached.', exception, stackTrace);
         rethrow;
       }
 
@@ -60,7 +60,7 @@ Future<T> retried<T, TException extends Object>(
       _logger.finest(
         'A retried operation failed. Waiting for ${delay.inMilliseconds / 1000} seconds.',
         exception,
-        StackTrace.current,
+        stackTrace,
       );
       await waitForDuration(delay);
       _logger.finer('Retrying (attempt $attemptCount / $maxAttemptCount).');
